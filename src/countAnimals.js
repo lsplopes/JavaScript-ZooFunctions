@@ -17,12 +17,10 @@ function countAnimals(animal) {
     return animalGeneralCount();
   }
   const contadorDeEspecie = data.species.filter(({ name }) => name === animal.specie);
-  const contadorPorSex = contadorDeEspecie[0].residents.filter(({ sex }) => sex === animal.sex);
   if (animal.specie !== undefined && animal.sex !== undefined) {
-    return contadorPorSex.length;
-  } if (animal.specie !== undefined && animal.sex === undefined) {
-    return contadorDeEspecie[0].residents.length;
+    return contadorDeEspecie[0].residents.filter(({ sex }) => sex === animal.sex).length;
   }
+  return contadorDeEspecie[0].residents.length;
 }
 
 module.exports = countAnimals;
