@@ -1,18 +1,45 @@
 const data = require('../data/zoo_data');
 
-// const zones = {
-//   NE: [],
-//   NW: [],
-//   SE: [],
-//   SW: [],
-// }
+// CRIA UMA FUNÇÃO QUE RETORNA UM OBJETO COM OS ANIMAIS DIVIDIDOS POR ZONAS EM CADA CHAVE
 
-// const getSpeciesByZone = () => {
-//   return Object.keys(zones).forEach((zona) => zones[zona].push(data.species.filter((animal) => animal.location === zona).name));
+const getSpeciesByZone = () => {
+  const zones = {
+    NE: [],
+    NW: [],
+    SE: [],
+    SW: [],
+  };
+  Object.keys(zones)
+    .forEach((zonaArray) => data.species
+      .filter((specie) => (specie.location === zonaArray))
+      .forEach((animalFiltered) => zones[zonaArray]
+        .push(animalFiltered.name)));
+  return zones;
+};
 
-// }
-// getSpeciesByZone()
-// console.log(zones);;
+console.log(getSpeciesByZone());
+
+// CRIA UMA FUNÇÃO TRANSFORMA O OBJETO ZONES CRIADO DE MODO QUE:
+// A CADA ANIMAL DENTRO DO ARRAY SE TRANSFORMA EM UM OBJETO
+// CADA OBJETO CONTEM APENAS UMA CHAVE
+// CADA UMA DESSAS CHAVES RECEBE UM ARRAY COM OS NOMES DOS RESIDENTES
+
+// const getSpeciesResidents = () => {
+//   const zones = {
+//     NE: [],
+//     NW: [],
+//     SE: [],
+//     SW: [],
+//   };
+//   Object.keys(zones)
+//     .forEach((zonaArray) => data.species
+//       .filter((specie) => (specie.location === zonaArray))
+//       .forEach((animalFiltered) => zones[zonaArray]
+//         .push(animalFiltered.name)));
+//   return zones;
+// };
+
+console.log(getSpeciesByZone());
 
 function getAnimalMap(options) {
   // seu código aqui
