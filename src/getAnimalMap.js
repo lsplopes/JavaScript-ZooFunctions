@@ -12,7 +12,8 @@ const data = require('../data/zoo_data');
 
 // }
 // getSpeciesByZone()
-// console.log(zones);
+// console.log(zones);;
+
 function getAnimalMap(options) {
   // seu código aqui
 }
