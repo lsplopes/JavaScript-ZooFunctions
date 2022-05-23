@@ -1,24 +1,6 @@
-const { handlerElephants, getElephants } = require('../src/handlerElephants');
+const handlerElephants = require('../src/handlerElephants');
 
 describe('Testes da função HandlerElephants', () => {
-  it('independente de parametro, função getElephants retorna objeto sobre elefantes presente em data.', () => {
-    const expected = {
-      id: 'bb2a76d8-5fe3-4d03-84b7-dba9cfc048b5',
-      name: 'elephants',
-      popularity: 5,
-      location: 'NW',
-      availability: ['Friday', 'Saturday', 'Sunday', 'Tuesday'],
-      residents: [
-        { name: 'Ilana', sex: 'female', age: 11 },
-        { name: 'Orval', sex: 'male', age: 15 },
-        { name: 'Bea', sex: 'female', age: 12 },
-        { name: 'Jefferson', sex: 'male', age: 4 },
-      ],
-    };
-    const actual = getElephants();
-    expect(actual).toStrictEqual(expected);
-  });
-
   it('Atribuindo parametro count na função handlerElephants, retorna a quantidade de elefantes existente', () => {
     const expected = 4;
     const actual = handlerElephants('count');
